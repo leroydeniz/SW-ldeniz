@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assessmentItems>
+	<assessmentItem subject="Web" author="jvadillo001@ikasle.ehu.eus">
+		<itemBody>
+			<p>Tag HTML para añadir un formulario</p>
+		</itemBody>
+		<correctResponse>
+			<response>
+				FORM
+			</response>
+		</correctResponse>
+		<incorrectResponses>
+			<response> OBJECT </response>
+			<response> TABLE </response>
+			<response> DIV </response>
+		</incorrectResponses>
+	</assessmentItem>
+	<assessmentItem subject="Internet" author="rarruabarrena001@ikasle.ehu.eus">
+		<itemBody>
+			<p>Este protocolo acabará funcionando
+			incluso entre dos latas unidas por un cordón</p>
+		</itemBody>
+		<correctResponse>
+			<response>
+				TCP/IP
+			</response>
+		</correctResponse>
+		<incorrectResponses>
+			<response> HTTP </response>
+			<response> SMTP </response>
+			<response> Ninguna es correcta </response>
+		</incorrectResponses>
+	</assessmentItem>
+<assessmentItem subject="55" author="ldeniz001@ikasle.ehu.eus"><itemBody><p>universidadtres</p></itemBody><correctResponse><response>11</response></correctResponse><incorrectResponses><reponse>22</reponse><reponse>33</reponse><reponse>44</reponse></incorrectResponses></assessmentItem><assessmentItem subject="FGHDFGHFGHFD" author="valoracion123@ikasle.ehu.eus"><itemBody><p>SDGFDGBDFHDFH</p></itemBody><correctResponse><response>FGHDF</response></correctResponse><incorrectResponses><reponse>GFHDFH</reponse><reponse>FGHDFH</reponse><reponse>FGH</reponse></incorrectResponses></assessmentItem><assessmentItem subject="aaaaaaaaaaaaaaaa" author="name123@ikasle.ehu.eus"><itemBody><p>la vidaAAAAAAAAAAAAAAAAAAA</p></itemBody><correctResponse><response>aaaaaaasdad</response></correctResponse><incorrectResponses><reponse>asdasfa</reponse><reponse>asfaf</reponse><reponse>afagsd</reponse></incorrectResponses></assessmentItem><assessmentItem subject="hdfghdfhfghdfghfdhhdfh" author="valoracion123@ikasle.ehu.eus"><itemBody><p>fghgfhgfhfdhfghgfh</p></itemBody><correctResponse><response>hfdhdfhdfhdfhfdhdfhfdhfdh</response></correctResponse><incorrectResponses><reponse>dfhdfhdfhfgh</reponse><reponse>fdhgfhdfghdf</reponse><reponse>ghgdfhfghfh</reponse></incorrectResponses></assessmentItem><assessmentItem subject="asfd" author="jjimenez051@ikasle.ehu.eus"><itemBody><p>ksdjfsljfsdlkfñja</p></itemBody><correctResponse><response>skjdfsjfj</response></correctResponse><incorrectResponses><reponse>sjdfskjf</reponse><reponse>sjdkfjk</reponse><reponse>sdfjkkjs</reponse></incorrectResponses></assessmentItem><assessmentItem subject="asfd" author="jjimenez051@ikasle.ehu.eus"><itemBody><p>ksdjfsljfsdlkfñja</p></itemBody><correctResponse><response>skjdfsjfj</response></correctResponse><incorrectResponses><reponse>sjdfskjf</reponse><reponse>sjdkfjk</reponse><reponse>sdfjkkjs</reponse></incorrectResponses></assessmentItem><assessmentItem subject="asfd" author="jjimenez051@ikasle.ehu.eus"><itemBody><p>ksdjfsljfsdlkfñja</p></itemBody><correctResponse><response>skjdfsjfj</response></correctResponse><incorrectResponses><reponse>sjdfskjf</reponse><reponse>sjdkfjk</reponse><reponse>sdfjkkjs</reponse></incorrectResponses></assessmentItem><assessmentItem subject="wjkhe" author="jjimenez051@ikasle.ehu.eus"><itemBody><p>iodoiwhjelwjeliwje</p></itemBody><correctResponse><response>sljdwlj</response></correctResponse><incorrectResponses><reponse>jkjw</reponse><reponse>wdjkej</reponse><reponse>nhdjk</reponse></incorrectResponses></assessmentItem><assessmentItem subject="wjkhe" author="jjimenez051@ikasle.ehu.eus"><itemBody><p>iodoiwhjelwjeliwje</p></itemBody><correctResponse><response>sljdwlj</response></correctResponse><incorrectResponses><reponse>jkjw</reponse><reponse>wdjkej</reponse><reponse>nhdjk</reponse></incorrectResponses></assessmentItem><assessmentItem subject="kl" author="jjimenez051@ikasle.ehu.eus"><itemBody><p>ertertewtert</p></itemBody><correctResponse><response>jhfl</response></correctResponse><incorrectResponses><reponse>h</reponse><reponse>h</reponse><reponse>kl</reponse></incorrectResponses></assessmentItem><assessmentItem subject="fgfg" author="ldeniz001@ikasle.ehu.eus"><itemBody><p>algo bla bla bla bla</p></itemBody><correctResponse><response>12</response></correctResponse><incorrectResponses><reponse>34</reponse><reponse>56</reponse><reponse>78</reponse></incorrectResponses></assessmentItem></assessmentItems>
