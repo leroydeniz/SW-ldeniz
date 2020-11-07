@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Lab 1 - Tarea 2 - ldeniz</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    </head>
+    <body>
+         <h1>Lab 1 - Tarea 2</h1>
+        <form>
+        
+            <table>
+                <tr>
+                    <td><label>Primer número: </label></td>
+                    <td><input type="number" id="numero1"></td>
+                </tr>
+                <tr>
+                    <td><label>Operador: </label></td>
+                    <td><select id="operador">
+                        <option value="+" selected>+</option>
+                        <option value="-">-</option>
+                        <option value="*">*</option>
+                        <option value="/">/</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td><label>Segundo número: </label></td>
+                    <td><input type="number" id="numero2"></td>
+                </tr>
+                <tr>
+                    <td><label>Posible respuesta: </label></td>
+                    <td><input type="number" id="apuesta"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><label id="etiqueta_resultado"></label></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="Verificar"  id="validar" onClick="verResultado()"></td> <td><input type="reset" value="Reset"></td>
+                </tr>
+            </table>
+            
+        </form>
+                
+        
+        <script>
+            
+            function verResultado(){
+                
+                var numero1 = parseInt($( "#numero1" ).val());
+                var numero2 = parseInt($( "#numero2" ).val());
+                var operador = $( "#operador" ).val()
+                var apuesta = parseInt($( "#apuesta" ).val());
+                var validar = $( "#validar" ).val()
+                
+                if (isNaN(numero1) || isNaN(numero2) || isNaN(apuesta)){ 
+                    alert("Es necesarios introducir tres números válidos");
+                } else {
+                
+                    
+                
+                }
+            }
+            
+            
+        </script>
+    </body>
+</html>

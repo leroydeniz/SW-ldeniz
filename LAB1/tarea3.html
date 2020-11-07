@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Lab 1 - ldeniz</title>
+        <meta charset="UTF-8">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.3.0/math.min.js"></script>
+    	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+         <h1>Lab 1 - Tarea 3</h1>
+    	<form>
+        	<input type="text" id="expresion_ingresada" placeholder="Ingresar expresión" onchange="validar()" oninput="validar()" size="40" required>
+        	<input type="text" id="respuesta_ingresada" placeholder="Ingresar respuesta" onchange="validar()"  oninput="validar()" required>
+        	<input type="reset" value ="Reset"><br/>
+        	<label id="aviso"></label>
+    	</form>
+   	 
+    	<script>
+        	function validar() {
+            	var expresion_ingresada = document.getElementById("expresion_ingresada").value;
+            	var respuesta_ingresada = parseInt(document.getElementById("respuesta_ingresada").value);
+            	var aviso = document.getElementById("aviso");
+           	 
+            	const node = math.parse(expresion_ingresada);
+                const code = node.compile();
+                const resultado = code.eval();
+           	
+            	if (resultado===respuesta_ingresada) {
+                	aviso.innerHTML="CORRECTO";
+            	} else {
+                	aviso.innerHTML="ERROR";
+            	}
+        	}
+    	</script>
+    </body>
+</html>
