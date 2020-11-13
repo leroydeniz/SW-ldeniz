@@ -7,6 +7,7 @@
     <script src="../js/ShowImageInForm.js"></script>
     <script src="../js/ShowQuestionsAjax.js"></script>
     <script src="../js/AddQuestionsAjax.js"></script>
+    <script src="../js/CountQuestions.js"></script>
     <script src="../js/ResetForm.js"></script>
 </head>
 <body>
@@ -24,6 +25,7 @@
   ?> 
   <section class="main" id="s1">
     <div>
+        <div style="border:1px solid black;padding:10px;" id="qcounter"> XX </div><br/><br/>
         <h2>Handling Quizes Ajax</h2><br/><br/>
         <form id='fquestion' name='fquestion' enctype='multipart/form-data'><center>
             <table>
