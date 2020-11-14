@@ -18,14 +18,36 @@
     } else {
         include "../php/Menus.php";
     }
+        
+    if(isset($_GET['email'])){
+        $email = $_GET['email'];
+    }
+  
+  
+    # Precarga de los XML para tener la información en los contenedores en el primer instante de carga de la página, antes de que se cominencen a actualizar a través de AJAX.
+  
+    if(!$xml = simplexml_load_file('../xml/UserCounter.xml')){
+        echo "<script>alert('No se ha podido cargar el XML en HandlingQuizesAjax.php');</script>";
+    } 
     
-  if(isset($_GET['email'])){
-      $email = $_GET['email'];
-  }
+    if(!$xml2 = simplexml_load_file('../xml/Questions.xml')){
+        echo "<script>alert('No se ha podido cargar el XML');</script>";
+    } else {
+        $counterTotal=0;
+        $counterPropias=0;
+        
+        foreach ($xml2 as $pregunta) {
+            $counterTotal = $counterTotal +1;
+            if($pregunta['author']==$email){
+                $counterPropias = $counterPropias +1;
+            }
+        }
+    }
   ?> 
   <section class="main" id="s1">
     <div>
-        <div style="border:1px solid black;padding:10px;" id="qcounter"> XX </div><br/><br/>
+        <div style="border:1px solid black;padding:10px;" id="ucounter"> <?php echo "Total de usuarios en línea: ".$xml->totalOfUsers; ?> </div><br/><br/>
+        <div style="border:1px solid black;padding:10px;" id="qcounter"> <?php echo "Todas las preguntas: ".$counterTotal." | Mis preguntas: ".$counterPropias;?> </div><br/><br/>
         <h2>Handling Quizes Ajax</h2><br/><br/>
         <form id='fquestion' name='fquestion' enctype='multipart/form-data'><center>
             <table>
@@ -117,7 +139,7 @@
         <center>
             <div id="preguntas"></div>
     
-            </div><br/><br/><br/><br/><br/>
+            </div><br/><br/><br/><br/><br/><br/><br/>
         </center>
   </section>
   <?php include '../html/Footer.html' ?>

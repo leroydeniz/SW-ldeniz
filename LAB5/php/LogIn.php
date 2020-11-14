@@ -56,7 +56,7 @@
             $password = $_POST["password"];
         }
         
-        //ABRO LA CONEXIÓN
+        # ABRO LA CONEXIÓN
         $mysqli = mysqli_connect ($server, $user, $pass, $basededatos);
         if (!$mysqli) {
             die("<center><br/><br/><h2> Ha habido un problema con la conexión a la base de datos!</h2><br/><br/><br/><br/>Detalle del error: ".mysqli_connect_error()."</center>");
@@ -64,12 +64,13 @@
             $sql = "SELECT * FROM usuarios where email=? AND password=?;";
             //verifico la conexión y la estructura inicial de la sentencia 
             if($stmt = mysqli_prepare($mysqli,$sql)){
-                //Se ligan las variables a los campos correspondientes: $stmt(estructura de sentencia), orden de atributos ssdf (string, string, int, float), variables separadas por ' , '
+                # Se ligan las variables a los campos correspondientes: $stmt(estructura de sentencia), orden de atributos ssdf (string, string, int, float), variables separadas por ' , '
                 mysqli_stmt_bind_param($stmt, "ss", $email, $password);
                 mysqli_stmt_execute($stmt);
                 $result = mysqli_stmt_get_result($stmt);
+                
                 if (mysqli_num_rows($result) == 1) {
-                    echo "<script>alert(\"¡Bienvenido!\");document.location.href='Layout.php?email=$email';</script>"; 
+                    echo "<script>alert(\"¡Bienvenido!\");document.location.href='IncreaseGlobalCounter.php?email=$email';</script>"; 
                 } else {
                     echo "<script>alert(\"Usuario o contraseña incorrectos\");document.location.href='LogIn.php';</script>"; 
                 }

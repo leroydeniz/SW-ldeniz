@@ -44,7 +44,7 @@
             
         ?>
 
-    </div><br/><br/><br/><br/><br/>
+    </div><br/><br/><br/><br/><br/><br/><br/>
   </section>
   <?php include '../html/Footer.html' ?>
 </body>

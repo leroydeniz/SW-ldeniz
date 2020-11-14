@@ -1,4 +1,6 @@
 <?php
+    
+    # necesito el mail para poder saber, de todas las preguntas, cuáles son del usuario que consulta
     $email = $_GET['email'];
     
     if(!$xml = simplexml_load_file('../xml/Questions.xml')){

@@ -28,7 +28,7 @@
             if(!$xml = simplexml_load_file('../xml/Questions.xml')){
                 echo "<script>alert('No se ha podido cargar el XML');</script>";
             } else {
-                // Accede a los nodos <puntuacion> de la primera pelicula.
+                
                 foreach ($xml as $pregunta) {
                     echo "<tr><td class='tdpregs'>".$pregunta['author']."</td><td class='tdpregs'>".$pregunta->itemBody->p."</td><td class='tdpregs'>".$pregunta->correctResponse->response."</td></tr>";
                 }
