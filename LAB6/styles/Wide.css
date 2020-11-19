@@ -1,0 +1,41 @@
+body {
+    background: #eee;
+}
+
+header {
+    border-bottom: 1px solid #999;
+    padding-bottom:15px;
+}
+
+nav	{
+    float: left; 
+    width: 15.5%; 
+    height: 100%; 
+    min-height:500px; 
+    padding-top:2%; 
+    padding-bottom:2%;height: 100vh;
+    border-right: 1px solid #999;
+}
+
+nav span {
+    margin: 0px 50px 0px 0px;
+    padding-top:2%;
+    padding-bottom:2%;
+}
+
+section {
+    float: right; width: 84%;
+    min-height:500px;
+    padding-top:2%;
+    padding-bottom:2%;height: 100vh;
+}
+
+footer {
+    border-top: 1px solid #999;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding-top:0.5%;
+    padding-bottom:0.5%;
+}

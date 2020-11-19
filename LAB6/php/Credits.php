@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <?php include '../html/Head.html'?>
+</head>
+<body>
+  
+  <?php
+    if(isset($_GET['email'])){
+        include "../php/Menus-registrado.php";
+    } else {
+        include "../php/Menus.php";
+    }
+  ?>
+  <section class="main" id="s1">
+    <div>
+
+      <h2>DATOS DEL AUTOR/AUTORES</h2><br/><br/>
+      
+      <h3>Leroy Deniz Pedreira</h3><br/>
+      Especialidad Computación<br/><br/>
+      <img src="../images/foto.jpg" style="max-width:200px;"><br/><br/>
+      ldeniz001@ikasle.ehu.eus
+
+    </div>
+  </section>
+  <?php include '../html/Footer.html' ?>
+</body>
+</html>
