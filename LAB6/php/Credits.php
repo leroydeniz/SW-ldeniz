@@ -20,8 +20,8 @@
       <h3>Leroy Deniz Pedreira</h3><br/>
       Especialidad Computación<br/><br/>
       <img src="../images/foto.jpg" style="max-width:200px;"><br/><br/>
-      ldeniz001@ikasle.ehu.eus
-
+      ldeniz001@ikasle.ehu.eus <br/><br/><br/>
+      
     </div>
   </section>
   <?php include '../html/Footer.html' ?>

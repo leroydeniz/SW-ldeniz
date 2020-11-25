@@ -70,7 +70,10 @@
                 $result = mysqli_stmt_get_result($stmt);
                 
                 if (mysqli_num_rows($result) == 1) {
-                    echo "<script>alert(\"¡Bienvenido!\");document.location.href='IncreaseGlobalCounter.php?email=$email';</script>"; 
+                    #actualizo la fecha y hora de la última conexión
+                    $sql2="UPDATE usuarios SET ultimo_acceso = NOW() WHERE email = '".$email."';";
+                    mysqli_query($mysqli, $sql2);
+                    echo "<script>alert(\"¡Bienvenido!\");document.location.href='IncreaseGlobalCounter.php?email=$email';</script>";
                 } else {
                     echo "<script>alert(\"Usuario o contraseña incorrectos\");document.location.href='LogIn.php';</script>"; 
                 }
