@@ -36,15 +36,20 @@
     
     
     function ObtenerPregunta ($y){
+		
     	include 'DbConfig.php';
         $mysqli = mysqli_connect ($server, $user, $pass, $basededatos);
+			
+		#Usa la base de datos como utf8
+		mysqli_set_charset($mysqli, 'utf8');
+		
         if (!$mysqli) {
             echo "<script>alert('".mysqli_connect_error()."')</script>";
         } else {
             $sql = "SELECT * FROM preguntas WHERE id = ? ;";
             //verifico la conexión y la estructura inicial de la sentencia 
             if($stmt = mysqli_prepare($mysqli,$sql)){
-                mysqli_stmt_bind_param($stmt, "ss", $y);
+                mysqli_stmt_bind_param($stmt, "s", $y);
                 mysqli_stmt_execute($stmt);
                 $resultado = mysqli_stmt_get_result($stmt);
                 

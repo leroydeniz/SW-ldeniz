@@ -3,15 +3,23 @@
 <html>
 <head>
   <?php include '../html/Head.html'?>
-    <script src="../js/jquery-3.4.1.min.js"></script>
-    <script src="../js/ShowImageInForm.js"></script>
-    <script src="../js/ValidateWS.js"></script>
+			
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+		<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+	
+    	<script src="../js/jquery-3.4.1.min.js"></script>
+    	<script src="../js/ShowImageInForm.js"></script>
+   	 	<script src="../js/ValidateWS.js"></script>
+   	 	<script src="../js/validarBoton.js"></script>
+	
 </head>
 <body>
-  
+
   <?php
     include "../php/Menu.php";
   ?>
+
   <?php include '../php/DbConfig.php'?>
   <section class="main" id="s1">
     <div>
@@ -20,13 +28,11 @@
             <table>
                 <tr>
                     <td>
-                        Tipo de usuario (*):
-                    </td>
-                    <td>
+                        Tipo de usuario: &nbsp;&nbsp;
                         <input type="radio" id="alumno" name="tipo" value="alumno">
                         <label for="alumno">Alumno</label> 
                         <input type="radio" id="profesor" name="tipo" value="profesor">
-                        <label for="profesor">Profesor</label><br>
+                        <label for="profesor">Profesor</label><br/><br/>
                     </td>
                     <td rowspan="9">
                         <img id="output" src="" style="max-width:200px;margin-left:20px;">
@@ -34,10 +40,7 @@
                 </tr>
                 <tr>
                     <td>
-                        Email (*):
-                    </td>
-                    <td>
-                        <input type="text" name="email" id="email" size="60" required/>
+                        <input type="text" name="email" id="email" size="60"  class="form-control"  placeholder="Email" style="text-align: center" required/>
                     </td>
                 </tr>
                 <tr>
@@ -47,39 +50,27 @@
                 </tr>
                 <tr>
                     <td>
-                        Nombre y apellido (*):
-                    </td>
-                    <td>
-                        <input type="text" name="nombre_apellidos" id="nombre_apellidos" size="60" required/>
+                        <input type="text" name="nombre_apellidos" id="nombre_apellidos" size="60"  class="form-control" placeholder="Nombre y apellido" style="text-align: center" required/><br/><br/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Password (*):
-                    </td>
-                    <td>
-                        <input type="password" name="password" id="password" size="60" required/>
+                        <input type="password" name="password" id="password" size="60" class="form-control"  placeholder="Password" style="text-align: center" required/>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan=2 id="validaPassword" style="text-align: center;vertical-align: middle;">
+                    <td colspan=2 id="validaPassword"style="text-align: center;vertical-align: middle;" >
                         &nbsp;
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Repetir password (*):
-                    </td>
-                    <td>
-                        <input type="password" name="re_password" id="re_password" size="60" required/>
+                        <input type="password" name="re_password" id="re_password" size="60" class="form-control"  placeholder="Repetir Password" style="text-align: center" required/><br/><br/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Foto de perfil:
-                    </td>
-                    <td>
-                        <input type="file" name="imgInp" id="imgInp" size="30" accept="image/*"  onchange="loadFile(event)" />
+                        Foto de perfil: <input type="file" class="form-control" name="imgInp" id="imgInp" size="30" accept="image/*"  onchange="loadFile(event)" />
                     </td>
                 </tr>
             </table>
@@ -87,7 +78,7 @@
             <label id="mensaje"></label>
             
             </center>
-            <br/><br/><input type="submit" name="submit" id="submit" value="Enviar solicitud" disabled/>
+            <br/><br/><input type="submit" class="btn btn-primary" name="submit" id="submit" value="Enviar solicitud" disabled/>
         </form>
 
     </div>

@@ -19,7 +19,7 @@
     		return 'SIN SERVICIO';
     	}else{
     		$pagina = file_get_contents('../txt/toppasswords.txt');
-    		if( strpos($pagina, $x) != false ) {
+    		if( strpos($pagina, $x) != false || strlen($x)<6) {
     			return 'INVALIDA';
     		} else {
     			return 'VALIDA';

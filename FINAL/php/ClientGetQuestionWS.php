@@ -9,7 +9,7 @@
             $pId = $_GET[ 'pId' ];
             
             //creamos el objeto de tipo soapclient.
-            $soapclient = new nusoap_client ( 'https://sw-ldeniz.000webhostapp.com/Lab6/php/GetQuestionWS.php?wsdl',true);
+            $soapclient = new nusoap_client ( 'http://leroydeniz.com/SW/php/GetQuestionWS.php?wsdl',true);
             
             //Llamamos la función que habíamos implementado en el Web Service e imprimimos lo que nos devuelve
             $result = $soapclient->call('ObtenerPregunta', array('y'=>$pId));

@@ -1,19 +1,24 @@
 <?php
     session_start();
-    if (ISSET($_SESSION['user']) && $_SESSION['password_tmp']==1){ 
+    if (isset($_SESSION['user']) && $_SESSION['password_tmp']==1){ 
         
     # usuario registrado con contraseña temporal
     
     ?>
     <html>
         <head>
-          <?php include '../html/Head.html'?>
+          	<?php include '../html/Head.html'?>
             <script src="../js/jquery-3.4.1.min.js"></script>
             <script src="../js/ShowImageInForm.js"></script>
+			
+			<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+			<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+			<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+			
         </head>
         <body>
-          
-        <?php include "../php/Menu.php"; ?> 
+        
+        <?php include "Menu.php"; ?> 
         <section class="main" id="s1">
             <div>
                 <h2>Cambiar contraseña</h2><br/><br/>
@@ -21,15 +26,12 @@
                     <table>
                         <tr>
                             <td>
-                                Ingrese la nueva contraseña:
-                            </td>
-                            <td>
-                                <input type="password" name="new_pass" id="new_pass" size="60" >
+                                <input type="password" class="form-control" placeholder="Ingresar nueva contraseña" style="text-align: center" name="new_pass" id="new_pass" size="60" >
                             </td>
                         </tr>
                     </table>
                     </center>
-                    <br/><br/><input type="submit" name="submit" id="submit" value="Cambiar contraseña"/>
+                    <br/><br/><input type="submit" name="submit" class="btn btn-primary" id="submit" value="Cambiar contraseña"/>
                 </form>
                 <br/><br/><br/>
           </section>
@@ -64,7 +66,7 @@
             }
         }
     
-    } else if (isset($_SESSION['user'])) {
+    } else if (isset($_SESSION['user']) && $_SESSION['byGoogle']==0) {
         
         # usuario logueado que cambia su contraseña
     ?>
@@ -74,26 +76,28 @@
           <?php include '../html/Head.html'?>
             <script src="../js/jquery-3.4.1.min.js"></script>
             <script src="../js/ShowImageInForm.js"></script>
+			
+			<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+			<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+			<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+			
         </head>
         <body>
           
         <?php include "Menu.php"; ?> 
         <section class="main" id="s1">
             <div>
-                <h2>Cambiar contraseña</h2><h3>Deberá volver a ingresar.</h3><br/><br/>
+                <h2>Cambiar contraseña</h2><h4>Deberá volver a ingresar.</h4><br/><br/>
                 <form id='fquestion' name='fquestion' enctype='multipart/form-data' method='POST'><center>
                     <table>
                         <tr>
                             <td>
-                                Ingrese la nueva contraseña:
-                            </td>
-                            <td>
-                                <input type="password" name="new_pass" id="new_pass" size="60" >
+                                <input type="password" class="form-control" placeholder="Ingresar nueva contraseña" name="new_pass" style="text-align: center" id="new_pass" size="60" >
                             </td>
                         </tr>
                     </table>
                     </center>
-                    <br/><br/><input type="submit" name="submit" id="submit" value="Cambiar contraseña"/>
+                    <br/><br/><input type="submit" name="submit" class="btn btn-primary" id="submit" value="Cambiar contraseña"/>
                 </form>
                 <br/><br/><br/>
           </section>

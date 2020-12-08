@@ -8,9 +8,13 @@
         <head>
           <?php include '../html/Head.html'?>
           <?php include '../php/DbConfig.php'?>
+			
+			<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+			<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+			<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+			
         </head>
         <body>
-          <
           <?php
             include "Menu.php";
           ?>
@@ -19,18 +23,25 @@
                 
             <style>
                 table, th, td { 
-                        border: 2px solid red; 
-                        text-align:center; 
-                    } 
+					text-align:center; 
+					margin-top: auto;
+					margin-bottom: auto;
+				} 
                 th, td { 
-                    padding: 20px; 
-                    background-color:none; 
+                    padding: 20px;
+					text-align: center;
+					margin-top: auto;
+					margin-bottom: auto;
                 } 
             </style> 
 
 <?php
     //ABRO LA CONEXIÓN
     $mysqli = mysqli_connect ($server, $user, $pass, $basededatos);
+		
+	#Usa la base de datos como utf8
+	mysqli_set_charset($mysqli, 'utf8');
+		
     if (!$mysqli) {
         die("<center><br/><br/><h2> Ha habido un problema con la conexión a la base de datos!</h2><br/><br/><img src='../images/not.png' style='max-width:200px;'><br/><br/><br/>Detalle del error: ".mysqli_connect_error()."</center>");
     } else {
@@ -39,8 +50,8 @@
         echo "<h2>Gestión de usuarios</h2><br/><br/><br/>";
         
         //CABECERA DELA TABLA
-        echo "<table border=1>";
-        echo "    <tr><th><b>Email</b></th><th><b>Rol</b></th><th><b>Pass</b></th><th><b>Imagen</b></th><th><b>Estado</b></th><th><b>Bloqueo</b></th><th><b>Borrar</b></th></tr>";
+        echo "<table class='table table-hover'>";
+        echo "    <thead class='thead-dark'><th scope='col'><b>Email</b></th><th scope='col'><b>Rol</b></th><th scope='col'><b>Pass</b></th><th scope='col'><b>Imagen</b></th><th scope='col'><b>Estado</b></th><th scope='col'><b>Bloqueo</b></th><th scope='col'><b>Borrar</b></th></thead>";
         
         while( $row = mysqli_fetch_array( $resultado )){
             
@@ -49,8 +60,8 @@
                 $botonCambiarEstado = "<img src='../images/not.png' style='max-width:20px;'>";
                 $botonEliminar = "<img src='../images/not.png' style='max-width:20px;'>";
             } else {
-                $botonCambiarEstado = "<a href='ChangeUserState.php?email=".$row['email']."'><input type='button' value='Cambiar estado'/></a>";
-                $botonEliminar = "<a href='RemoveUser.php?email=".$row['email']."'><input type='button' value='Eliminar'/></a>";
+                $botonCambiarEstado = "<a href='ChangeUserState.php?email=".$row['email']."'><input type='button' class='btn btn-success' value='Cambiar estado'/></a>";
+                $botonEliminar = "<a href='RemoveUser.php?email=".$row['email']."'><input type='button' class='btn btn-danger' value='Eliminar'/></a>";
             }
             
             if ($row['estado'] == 1) {
@@ -61,23 +72,23 @@
             
             if ($row['foto']!=NULL){
                 echo "<tr>
-                        <td>".$row['email']."</td>
-                        <td>".$row['tipo_usuario']."</td>
-                        <td>".$row['password']."</td>
-                        <td><img style='max-width:120px; max-height:80px;' alt='imagen usuario' src='data:image;base64,".$row['foto']."'/></td>
-                        <td>".$row['estado']."</td>
-                        <td>$botonCambiarEstado</td>
-                        <td>$botonEliminar</td>
+                        <td class='align-middle'>".$row['email']."</td>
+                        <td class='align-middle'>".$row['tipo_usuario']."</td>
+                        <td class='align-middle'>".$row['password']."</td>
+                        <td class='align-middle'><img style='max-width:120px; max-height:80px;' alt='imagen usuario' src='data:image;base64,".$row['foto']."'/></td>
+                        <td class='align-middle'>".$row['estado']."</td>
+                        <td class='align-middle'>$botonCambiarEstado</td>
+                        <td class='align-middle'>$botonEliminar</td>
                     </tr>";
             } else {
                 echo "<tr>
-                        <td>".$row['email']."</td>
-                        <td>".$row['tipo_usuario']."</td>
-                        <td>".$row['password']."</td>
-                        <td></td>
-                        <td>".$row['estado']."</td>
-                        <td>$botonCambiarEstado</td>
-                        <td>$botonEliminar</td>
+                        <td class='align-middle'>".$row['email']."</td>
+                        <td class='align-middle'>".$row['tipo_usuario']."</td>
+                        <td class='align-middle'>".$row['password']."</td>
+                        <td class='align-middle'></td>
+                        <td class='align-middle'>".$row['estado']."</td>
+                        <td class='align-middle'>$botonCambiarEstado</td>
+                        <td class='align-middle'>$botonEliminar</td>
                     </tr>";
             }
             

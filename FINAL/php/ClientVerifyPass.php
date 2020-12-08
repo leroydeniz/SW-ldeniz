@@ -7,7 +7,7 @@
     $ticket = $_GET["ticket"];
     
     
-    $soapclient = new nusoap_client('https://sw-ldeniz.000webhostapp.com:443/Lab6/php/VerifyPassWS.php?wsdl',true);
+    $soapclient = new nusoap_client('http://leroydeniz.com/SW/php/VerifyPassWS.php?wsdl',true);
     $result = $soapclient->call('ValidarPasswordWS', array( 'x'=>$password,'y'=>1010) );
     
     $err = $soapclient->getError();

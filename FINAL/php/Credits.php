@@ -3,6 +3,11 @@
 <html>
 <head>
   <?php include '../html/Head.html'?>
+	
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+		<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+	
 </head>
 <body>
   
@@ -12,10 +17,10 @@
   <section class="main" id="s1">
     <div>
 
-      <h2>DATOS DEL AUTOR/AUTORES</h2><br/><br/>
+      <h2>DATOS DEL AUTOR</h2><br/><br/>
       
       <h3>Leroy Deniz Pedreira</h3><br/>
-      Especialidad Computación<br/><br/>
+      Especialidad Ingeniería del Software<br/><br/>
       <img src="../images/foto.jpg" style="max-width:200px;"><br/><br/>
       ldeniz001@ikasle.ehu.eus <br/><br/><br/>
       

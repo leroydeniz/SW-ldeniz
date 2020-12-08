@@ -13,6 +13,11 @@
             <script src="../js/AddQuestionsAjax.js"></script>
             <script src="../js/CountQuestions.js"></script>
             <script src="../js/ResetForm.js"></script>
+			
+			<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+			<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+			<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+			
         </head>
         <body>
           
@@ -44,7 +49,7 @@
           ?> 
           <section class="main" id="s1">
             <div>
-                <div style="border:1px solid black;padding:10px;" id="ucounter"> <?php echo "Total de usuarios en línea: ".$xml->totalOfUsers; ?> </div><br/><br/>
+                <div style="border:1px solid black;padding:10px;" id="ucounter"> <?php echo "Total de usuarios en línea: ".$xml->totalOfUsers; ?> </div><br/>
                 <div style="border:1px solid black;padding:10px;" id="qcounter"> <?php echo "Todas las preguntas: ".$counterTotal." | Mis preguntas: ".$counterPropias;?> </div><br/><br/>
                 <h2>Handling Quizes Ajax</h2><br/><br/>
                 <form id='fquestion' name='fquestion' enctype='multipart/form-data'><center>
@@ -55,8 +60,8 @@
                                 Email (*):
                             </td>
                             <td>
-                                <input type="text" value="<?php echo $_SESSION['user']; ?>" name="emailform" id="emailform" size="60" style="background-color:#bbbbbb;" readonly >
-                            </td>
+                                <input type="text" class="form-control" value="<?php echo $_SESSION['user']; ?>" name="emailform" style="text-align:center;background-color:#bbbbbb;"  id="emailform" size="60" readonly >
+							</td>
                             <td rowspan="9">
                                 <img id="output" src="" style="max-width:250px;margin-left:20px;">
                             </td>
@@ -66,7 +71,7 @@
                                 Enunciado de la pregunta (*):
                             </td>
                             <td>
-                                <input type="text" name="enunciado" id="enunciado" size="60" >
+                                <input type="text" class="form-control" name="enunciado" style="text-align: center" id="enunciado" size="60" >
                             </td>
                         </tr>
                         <tr>
@@ -74,7 +79,7 @@
                                 Respuesta correcta (*):
                             </td>
                             <td>
-                                <input type="text" name="respuesta_correcta" id="respuesta_correcta" size="60" >
+                                <input type="text" class="form-control" name="respuesta_correcta" style="text-align: center" id="respuesta_correcta" size="60" >
                             </td>
                         </tr>
                         <tr>
@@ -82,7 +87,7 @@
                                 Respuesta incorrecta 1 (*):
                             </td>
                             <td>
-                                <input type="text" name="respuesta_mal1" id="respuesta_mal1" size="60" >
+                                <input type="text" class="form-control" name="respuesta_mal1" style="text-align: center" id="respuesta_mal1" size="60" >
                             </td>
                         </tr>
                         <tr>
@@ -90,7 +95,7 @@
                                 Respuesta incorrecta 2 (*):
                             </td>
                             <td>
-                                <input type="text" name="respuesta_mal2" id="respuesta_mal2" size="60" >
+                                <input type="text" class="form-control" name="respuesta_mal2" style="text-align: center" id="respuesta_mal2" size="60" >
                             </td>
                         </tr>
                         <tr>
@@ -98,7 +103,7 @@
                                 Respuesta incorrecta 3 (*):
                             </td>
                             <td>
-                                <input type="text" name="respuesta_mal3" id="respuesta_mal3" size="60" >
+                                <input type="text" class="form-control" name="respuesta_mal3" style="text-align: center" id="respuesta_mal3" size="60" >
                             </td>
                         </tr>
                         <tr>
@@ -106,7 +111,7 @@
                                 Complejidad (*):
                             </td>
                             <td>
-                                <select id="complejidad" name="complejidad" style="width:100%;" >
+                                <select id="complejidad" class="form-control" name="complejidad" style="width:100%;" >
                                     <option value="1">Baja</option>
                                     <option value="2">Media</option>
                                     <option value="3">Alta</option>
@@ -118,7 +123,7 @@
                                 Tema de la pregunta (*):
                             </td>
                             <td>
-                                <input type="text" name="tema" id="tema" size="60" >
+                                <input type="text" class="form-control" name="tema" id="tema" style="text-align: center" size="60" >
                             </td>
                         </tr>
                         <tr>
@@ -126,12 +131,12 @@
                                 Imagen relacionada:
                             </td>
                             <td>
-                                <input type="file" name="imgInp" id="imgInp" size="30" accept="image/png,image/gif,image/jpeg, image/svg, image/jpg"  onchange="loadFile(event)">
+                                <input type="file" class="form-control"  name="imgInp" id="imgInp" size="30" accept="image/png,image/gif,image/jpeg, image/svg, image/jpg"  onchange="loadFile(event)">
                             </td>
                         </tr>
                     </table>
                     </center>
-                    <br/><br/><input type="button" id="verpreguntas" value="Ver preguntas" onClick="ShowQuestions()"/><input type="button" id="enviarsolicitud" value="Enviar solicitud" onClick="ShowQuestions()"/><input type="reset" value="Borrar" id="resetForm" onClick="ResetForm()"/>
+                    <br/><br/><input type="button" class='btn btn-primary' id="verpreguntas" value="Ver preguntas" onClick="ShowQuestions()"/> &nbsp; <input type="button" class='btn btn-primary' id="enviarsolicitud" value="Enviar solicitud" onClick="ShowQuestions()"/> &nbsp; <input type="reset" class='btn btn-primary' value="Borrar" id="resetForm" onClick="ResetForm()"/>
                 </form>
                 <br/><br/><br/>
                 <center>

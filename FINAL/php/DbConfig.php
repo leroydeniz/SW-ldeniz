@@ -7,9 +7,9 @@ if ($local==1){
     $basededatos="quiz";
 }
 else{
-    $server="localhost";
+    $server="PMYSQL108.dns-servicio.com";
     $user="id14882889_swldeniz";
-    $pass="buwko5-wicPyk-wavhid";
-    $basededatos="id14882889_quiz";
+    $pass="71z0z&bX";
+    $basededatos="6705937_quiz";
 }
 ?>

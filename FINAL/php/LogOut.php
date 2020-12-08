@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    if (ISSET($_GET['destroy'])){
+    if (isset($_GET['destroy'])){
         if(!$xml = simplexml_load_file('../xml/UserCounter.xml')){
             echo "<script>alert('No se ha podido cargar el XML en LogOut.php');</script>";
         } else {
@@ -10,7 +10,7 @@
                 $suma = $suma - 1;
                 $xml->totalOfUsers = $suma;
             }
-            # para evitar que el contador pueda ser negativo, lo dejo en 0
+            # para evitar que el contador pueda ser negativo, wn cada pasada lo dejo en 0
             if($total->totalOfUsers<0) {
                 $total->totalOfUsers=0;
             }

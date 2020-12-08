@@ -9,6 +9,10 @@
     
 <head>
   <?php include '../html/Head.html'?>
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+		<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+	
     <script src="../js/jquery-3.4.1.min.js"></script>
     <script src="../js/ShowImageInForm.js"></script>
 </head>
@@ -21,18 +25,12 @@
             <table>
                 <tr>
                     <td>
-                        Email (*):
-                    </td>
-                    <td>
-                        <input type="text" name="email" id="email" size="60" >
+                        <input class="form-control" type="text" name="email" id="email" size="60" placeholder="Email" style="text-align: center" /> <br/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Password (*):
-                    </td>
-                    <td>
-                        <input type="password" name="password" id="password" size="60" >
+                        <input class="form-control" type="password" name="password" id="password" size="60" placeholder="Password" style="text-align: center" />
                     </td>
                 </tr>
             </table>
@@ -40,7 +38,8 @@
             <label id="mensaje"></label>
             
             </center>
-            <br/><br/><input type="submit" name="submit" id="submit" value="Enviar solicitud">
+            <br/>
+		<input type="submit" class="btn btn-primary" name="submit" id="submit" value="Enviar solicitud">
             
             <br/><br/><a href="RecoveryPassword.php">¿Has olvidado la contraseña?</a>
             
@@ -64,21 +63,28 @@
         if(isset($_POST["password"])) { 
             $password = $_POST["password"];
         }
-        
+		
+		error_reporting(E_ALL);
+		ini_set('display_errors', '1');
+		
         include '../php/DbConfig.php';
-        #Usa la base de datos como utf8
-		mysqli_set_charset($mysqli, 'utf8');
+		
         
         # ABRO LA CONEXIÓN
         $mysqli = mysqli_connect ($server, $user, $pass, $basededatos);
+		
+        #Usa la base de datos como utf8
+		mysqli_set_charset($mysqli, 'utf8');
+		
         if (!$mysqli) {
             die("<center><br/><br/><h2> Ha habido un problema con la conexión a la base de datos!</h2><br/><br/><br/><br/>Detalle del error: ".mysqli_connect_error()."</center>");
         } else {
             $sql = "SELECT * FROM usuarios where email=? AND password=?;";
             //verifico la conexión y la estructura inicial de la sentencia 
             if($stmt = mysqli_prepare($mysqli,$sql)){
+				$pass_enc = sha1($password);
                 # Se ligan las variables a los campos correspondientes: $stmt(estructura de sentencia), orden de atributos ssdf (string, string, int, float), variables separadas por ' , '
-                mysqli_stmt_bind_param($stmt, "ss", $email, sha1($password));
+                mysqli_stmt_bind_param($stmt, "ss", $email, $pass_enc);
                 mysqli_stmt_execute($stmt);
                 $result = mysqli_stmt_get_result($stmt);
 		
@@ -100,6 +106,7 @@
             			$_SESSION['tipo_usuario'] = $datos['tipo_usuario'];
             			$_SESSION['foto'] = $datos['foto'];
             			$_SESSION['admin']= $datos['admin'];
+						$_SESSION['byGoogle'] = 0;
             			$_SESSION['password_tmp']= $datos['password_tmp'];
             			
             			#actualizo la última conexión

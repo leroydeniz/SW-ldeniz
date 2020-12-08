@@ -11,6 +11,9 @@
   <?php include '../html/Head.html'?>
     <script src="../js/jquery-3.4.1.min.js"></script>
     <script src="../js/ShowImageInForm.js"></script>
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+		<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
   <?php include '../php/Menu.php' ?>
@@ -18,11 +21,10 @@
     <div>
         <h2>Recuperar contraseña</h2><br/><br/>
         <form name='fquestion' method='POST' action="" enctype='multipart/form-data'><center>
-            Ingrese el email asociado a su cuenta (*): <br/><br/>
-            <input type="text" name="email" id="email" size="60" >
+            <input class="form-control" type="text" name="email" id="email" style="text-align:center;max-width:500px;"  placeholder="Ingresar email" >
             
             </center>
-            <br/><br/><input type="submit" name="submit" id="submit" value="Recuperar">
+            <br/><br/><input class="btn btn-primary" type="submit"  name="submit" id="submit" value="Recuperar">
             
         </form>
 
@@ -51,7 +53,7 @@
 		mysqli_set_charset($mysqli, 'utf8');
 		
         if (!$mysqli) {
-            die("<center><br/><br/><h2> Ha habido un problema con la conexión a la base de datos!</h2><br/><br/><br/><br/>Detalle del error: ".mysqli_connect_error()."</center>");
+			echo "<script>alert('Error en DB: ".mysqli_connect_error()."');</script>";
         } else {
             $sql = "SELECT * FROM usuarios where email=?";
             //verifico la conexión y la estructura inicial de la sentencia 
@@ -74,7 +76,7 @@
                         $pass_tmp = randomPassword();
                         $pass_tmp_sha1 = sha1($pass_tmp);
                         
-                        echo "<script>alert('Contraseña temporal: ".$pass_tmp." (Eliminar esta línea cuando los mails se envíen correctamente.)');</script>";
+                        #echo "<script>alert('Contraseña temporal: ".$pass_tmp." (Eliminar esta línea cuando los mails se envíen correctamente.)');</script>";
                         
                         # la almaceno encriptada en la base de datos
                         $sql2="UPDATE usuarios SET password_tmp = 1, password = ? WHERE email = ? ;";
@@ -85,20 +87,18 @@
                         mysqli_close($mysqli);
                         
                         
-                        /*
-                        # la envío por mail usando la clase mail
-                        ini_set('display_errors', 1);
-                        error_reporting( E_ALL );
                         
-                        $Body = "---------------------------------------------------- \n";
-        				$Body.= "            Recuperación de contraseña               \n";
-        				$Body.= "---------------------------------------------------- \n";
-        				$Body.= "Hola ".$datos['nombre_apellido'].",\n\n";
-        				$Body.= "Has solicitado recuperar contrasela.\n";
-        				$Body.= "El sistema pedirá que la cambies en el primer ingreso.\n\n";
-        				$Body.= "---------------------------------------------------- \n\n";
-        				$Body.= "\nPassword temporal: ".$pass_tmp."\n\n";
-        				$Body.= "---------------------------------------------------- \n";
+                        # la envío por mail usando la clase mail
+                        
+                        $Body = "---------------------------------------------------- <br/>";
+        				$Body.= "            Recuperación de contraseña               <br/>";
+        				$Body.= "---------------------------------------------------- <br/><br/>";
+        				$Body.= "Hola ".$datos['nombre_apellido'].",<br/><br/>";
+        				$Body.= "Has solicitado recuperar tu contraseña.<br/>";
+        				$Body.= "El sistema pedirá que la cambies en el primer ingreso.<br/><br/>";
+        				$Body.= "---------------------------------------------------- <br/><br/>";
+        				$Body.= "Password temporal: <b>".$pass_tmp."</b><br/><br/>";
+        				$Body.= "---------------------------------------------------- <br/><br/>";
         				
         				$headers = "MIME-Version: 1.0" . "\r\n";
 				        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
@@ -106,37 +106,11 @@
 				        
 				        $subject = "Recuperar contraseña | Quizes";
 				        
-				        $to = $datos['email'];
+				        //$to = $datos['email'];
+        				$to = "leroydeniz@icloud.com";
         								
                         mail($to,$subject,$Body,$headers);
-                        
-                        
-                        
-                        # la envío por mail usando la clase phpMailer
-                        $mail = new PHPMailer;
-                        $mail->Host = "localhost";
-        				$mail->From = "contacto@quizes.com";
-        				$mail->FromName = "Quizes Admin";
-        				$mail->Subject = "Recuperar contraseña | Quizes";
-        				$mail->AddAddress('$email');
-        				//$mail->AddAddress('ldeniz001@ikasle.ehu.eus');
-                        $mail->AddAddress('leroydeniz@icloud.com');
-        					
-        				$Body = "---------------------------------------------------- \n";
-        				$Body.= "            Recuperación de contraseña               \n";
-        				$Body.= "---------------------------------------------------- \n";
-        				$Body.= "Hola ".$datos['nombre_apellido'].",\n\n";
-        				$Body.= "Has solicitado recuperar contrasela.\n";
-        				$Body.= "El sistema pedirá que la cambies en el primer ingreso.\n\n";
-        				$Body.= "---------------------------------------------------- \n\n";
-        				$Body.= "\nPassword temporal: ".$pass_tmp."\n\n";
-        				$Body.= "---------------------------------------------------- \n";
-        								
-        				$mail->Body  = $Body;
-        							
-        				$mail->Send();
-                        
-                        */
+                                                
                         echo "<script>alert('¡Se ha enviado un mail con su contraseña tamporal!');document.location.href='LogIn.php';</script>";
                     }
                 } else {
