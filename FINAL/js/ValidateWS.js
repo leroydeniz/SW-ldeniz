@@ -1,18 +1,5 @@
-setInterval(function() {
-        
-    var validateEmail = document.getElementById('validaUsuario').innerText;
-    var validatePass = document.getElementById('validaPassword').innerText;
-    if (validateEmail.length == 13 && validatePass.length == 8) {
-        document.getElementById('submit').disabled = false;
-    } else {
-        document.getElementById('submit').disabled = true;
-    }
-    
-}, 2000);
-
-
 $( document ).ready(function() {
-    
+	
     $('input[name="email"]').focusout(function() {
         
     var validateEmail = document.getElementById('validaUsuario').value;
