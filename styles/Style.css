@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+* {
+    margin: 0; padding: 0;
+}
+html {
+  height: 100%;
+}
+body {
+    font: 16px Georgia, serif;
+  height: 100%;
+}
+
+#page-wrap {
+    margin: 1% auto;
+    color: white;
+}
+
+#page-wrap >.main {
+	margin-bottom: 1px;
+	color: black;
+}
+
+section > div {
+    padding: 5px;
+}
+
+.menusup{
+    margin:10px;
+}
+
+header, nav, section {
+    background: #fff; 
+    text-align: center;
+}
+
+footer {
+    background: #eee; 
+    text-align: center;
+}
+
+nav span {
+    margin: 0px 5px 0px 0px;
+	width: 100%;
+	display: inline-block;
+}
+
+#ErrorMsgs {
+    color: #f61; 
+    font-size: smaller
+}
+
+
+
